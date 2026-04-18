@@ -49,6 +49,8 @@ When something is broken or behaving unexpectedly:
 
 Ask yourself: "Would a senior engineer say this is overcomplicated?" If yes, simplify.
 
+**When cutting is a judgment call, name it — don't hide it.** If you can see a reasonable argument for more structure (defensive handling, extensibility, abstraction that aids readability), surface it before deciding. Silent simplification is as bad as silent over-engineering.
+
 ## 5. Surgical Changes
 
 **Touch only what you must. Clean up only your own mess.**

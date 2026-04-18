@@ -2,7 +2,7 @@
 
 Personal behavioral guidelines for Claude Code, loaded globally via `~/.claude/CLAUDE.md`.
 
-Built on top of [multica-ai/andrej-karpathy-skills](https://github.com/multica-ai/andrej-karpathy-skills), which distilled four behavioral principles from [Andrej Karpathy's observations](https://x.com/karpathy/status/2015883857489522876) on LLM coding pitfalls. Two additional principles — **Check Prior Art First** and **Diagnose Before Solving** — were added to address failure modes observed in personal use.
+Built on top of [multica-ai/andrej-karpathy-skills](https://github.com/multica-ai/andrej-karpathy-skills), which distilled four behavioral principles from [Andrej Karpathy's observations](https://x.com/karpathy/status/2015883857489522876) on LLM coding pitfalls. Three additional principles — **Check Prior Art First**, **Diagnose Before Solving**, and **Close the Loop** — were added to address failure modes observed in personal use.
 
 ## Why this exists
 

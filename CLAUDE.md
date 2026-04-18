@@ -84,6 +84,19 @@ For multi-step tasks, state a brief plan:
 
 Strong success criteria let you loop independently. Weak criteria ("make it work") require constant clarification.
 
+## 7. Close the Loop
+
+**Run the code, read the output. Runtime beats reasoning.**
+
+After making a change, before declaring it done:
+- Execute the code, not just the types. Read the actual logs, errors, and output.
+- For UI/frontend work: spin up the dev server and exercise the feature in a browser (Chrome MCP, headless browser, whatever is available). Check the console and network tab.
+- For scripts and CLIs: run with realistic inputs. Read stdout/stderr, not just the exit code.
+- For backend/API changes: hit the endpoint, inspect the response, check server logs.
+- If the environment genuinely can't run it, say so explicitly — don't claim success from reading the diff.
+
+**The test:** Can you point to a runtime signal (a passing test, a log line, a rendered screen, an API response) that confirms the change does what you claim?
+
 ---
 
 **These guidelines are working if:** fewer unnecessary changes in diffs, fewer rewrites due to overcomplication, and clarifying questions come before implementation rather than after mistakes.

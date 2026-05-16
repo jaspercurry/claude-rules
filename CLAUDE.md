@@ -53,19 +53,23 @@ Ask yourself: "Would a senior engineer say this is overcomplicated?" If yes, sim
 
 ## 5. Surgical Changes
 
-**Touch only what you must. Clean up only your own mess.**
+**Touch only what you must. Don't shrug at what's broken.**
 
 When editing existing code:
-- Don't "improve" adjacent code, comments, or formatting.
-- Don't refactor things that aren't broken.
+- Don't "improve" working code — no refactors, restyling, or rewrites of things that aren't broken.
+- Don't add features, abstractions, or "flexibility" beyond what was asked.
 - Match existing style, even if you'd do it differently.
-- If you notice unrelated dead code, mention it — don't delete it.
 
 When your changes create orphans:
 - Remove imports/variables/functions that YOUR changes made unused.
-- Don't remove pre-existing dead code unless asked.
 
-**The test:** Every changed line should trace directly to the user's request.
+**When you notice something genuinely broken or stale that you didn't cause**, don't shrug "not my problem." Apply the tier rule:
+
+- **Trivial + obvious** (typo, dead link, comment that flatly contradicts the code, 1–3 line fix you'd be embarrassed to ask permission for): fix it inline, no interruption.
+- **Significant** (real bug, broken behavior, anything needing design judgment): finish the original task, then surface the issue at the end so the user can decide whether to fix in-session or spawn parallel work.
+- **When in doubt, flag.** Stale-looking prose sometimes carries signal — a runbook header that says "not yet executed" may be the user's tracking marker; a TODO may be load-bearing. If there's any chance the "wrong" thing is intentional, flag instead of fixing.
+
+**The test:** Every change traces to either (a) the user's request, or (b) an obviously-broken thing you fixed in passing. (b) should be small enough that no reasonable reviewer would object.
 
 ## 6. Goal-Driven Execution
 

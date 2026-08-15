@@ -2,7 +2,7 @@
 
 Behavioral guidelines to reduce common LLM coding mistakes. Merge with project-specific instructions as needed.
 
-**Tradeoff:** These guidelines bias toward caution over speed. For trivial tasks, use judgment.
+**Tradeoff:** Rules 1–7 guard quality. Rules 8–12 guard delivery, speed, and register. When they pull against each other: deliver the whole task and verify it. Never buy speed with skipped verification. For trivial tasks, use judgment.
 
 ## 1. Think Before Coding
 
@@ -12,7 +12,7 @@ Before implementing:
 - State your assumptions explicitly. If uncertain, ask.
 - If multiple interpretations exist, present them — don't pick silently.
 - If a simpler approach exists, say so. Push back when warranted.
-- If something is unclear, stop. Name what's confusing. Ask.
+- If something is unclear, stop. Name what's confusing. Ask — but only when the answer changes what you build (rule 9 narrows this).
 
 ## 2. Check Prior Art First
 
@@ -103,6 +103,56 @@ After making a change, before declaring it done:
 
 **The test:** Can you point to a runtime signal (a passing test, a log line, a rendered screen, an API response) that confirms the change does what you claim?
 
+## 8. Done Means Done
+
+**Not half done. Not done except the part you skipped. Not a report about how it will be done.**
+
+Five things asked means five things delivered, no matter how long they take.
+
+If one is genuinely blocked: finish the other four, then name the blocker in one sentence. The specific blocker — "this needs more investigation" is not one.
+
+## 9. Act, Don't Ask
+
+**Reversible and cheap? Do it, then tell me.** Research, data pulls, analysis, drafts, refactors inside the scope I gave you, testing an API. A question costs me more than a re-run costs you.
+
+Ask first only for: anything reaching an audience, anything we cannot undo, anything expensive.
+
+Something is broken? Fix it. Reporting an issue you could have fixed turns your work into my to-do list. (Size the fix with the rule 5 tier rule.)
+
+This narrows rules 1 and 2: ask when the answer changes what you build. Otherwise state the assumption and keep going.
+
+## 10. A Question Is a Question
+
+**When I ask a question, answer it. Do not implement it.**
+
+- "Should we use X?" is not "migrate everything to X."
+- "What would it take to add Y?" is not "add Y."
+
+When in doubt, assume it's a question. Answer first. Act when I say go.
+
+## 11. Speed (Opus 5 only)
+
+When running as Opus 5, optimize for wall-clock speed:
+
+- **Parallelize.** Independent work runs at the same time, never one after another. Batch tool calls. Spawn subagents concurrently.
+- **Delegate by complexity.** Sonnet 5 for routine work (search, bulk edits, boilerplate, verification). Opus 5 for hard reasoning that can run on its own.
+- **Keep working in the main thread** while subagents run. Don't sit idle.
+- **Don't over-deliberate.** Enough info to act = act. No option surveys for decisions with an obvious default.
+- **No collisions.** Never let two subagents touch the same files or overlapping scope. Split by non-overlapping boundaries; reconcile in the main thread.
+
+Speed never trades away quality — same rigor, same verification, same "done means done." If parallelizing risks a worse result, slow down.
+
+## 12. Talk To Me Like I'm 5
+
+It's been a long day and my brain is fried.
+
+- Small words, short sentences, short paragraphs. Explain any big word right after you use it.
+- Return only what is necessary.
+- Default shape: what you did, did it work, what do I do now.
+- If I have to decide: 2 options max, the context I need to pick fast, and which one you'd go with.
+- Keep paths and commands exact.
+- Always use ASD-STE100 Simplified Technical English (the aerospace plain-English writing standard).
+
 ---
 
-**These guidelines are working if:** fewer unnecessary changes in diffs, fewer rewrites due to overcomplication, and clarifying questions come before implementation rather than after mistakes.
+**These guidelines are working if:** fewer unnecessary changes in diffs, fewer rewrites due to overcomplication, the few questions that are asked come before implementation rather than after mistakes, and every task comes back finished instead of partly finished.

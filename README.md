@@ -8,7 +8,7 @@ Built on top of [multica-ai/andrej-karpathy-skills](https://github.com/multica-a
 
 Claude Code is capable but has predictable failure modes: picking an interpretation silently when things are ambiguous, over-engineering simple requests, touching code it shouldn't, and jumping to fixes before the root cause is located. These guidelines are a short, durable set of rules that bias behavior away from those defaults — applied to every project, on every machine, without copy-pasting anything per-repo.
 
-They bias toward caution over speed. For trivial tasks, judgment still applies.
+Rules 1–7 guard quality; rules 8–12 guard delivery, speed, and register — the tradeoff note at the top of [`CLAUDE.md`](./CLAUDE.md) says how they resolve when they pull against each other. For trivial tasks, judgment still applies.
 
 ## How it's used
 

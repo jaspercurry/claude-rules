@@ -49,6 +49,8 @@ When something is broken or behaving unexpectedly:
 
 Ask yourself: "Would a senior engineer say this is overcomplicated?" If yes, simplify.
 
+**Watch where code lands, not just how much.** A god file is born one reasonable-looking diff at a time. Put new logic behind the boundary that owns it — or cut the natural boundary while it is fresh — rather than growing a file that already carries several concerns. Scope this to what your change adds: it is not a licence to refactor working code you were not asked to touch, and don't shatter one coherent concern across files for tidiness.
+
 **When cutting is a judgment call, name it — don't hide it.** If you can see a reasonable argument for more structure (defensive handling, extensibility, abstraction that aids readability), surface it before deciding. Silent simplification is as bad as silent over-engineering.
 
 ## 5. Surgical Changes

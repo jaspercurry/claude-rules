@@ -73,6 +73,8 @@ When your changes create orphans:
 
 **The test:** Every change traces to either (a) the user's request, or (b) an obviously-broken thing you fixed in passing. (b) should be small enough that no reasonable reviewer would object.
 
+A project's own instructions can widen this (deletion mandates, sanctioned refactors); when they do, they win.
+
 ## 6. Goal-Driven Execution
 
 **Define success criteria. Loop until verified.**
@@ -132,9 +134,9 @@ This narrows rules 1 and 2: ask when the answer changes what you build. Otherwis
 
 When in doubt, assume it's a question. Answer first. Act when I say go.
 
-## 11. Speed (Opus 5 only)
+## 11. Speed
 
-When running as Opus 5, optimize for wall-clock speed:
+When running as a frontier-tier model with subagents available, optimize for wall-clock speed:
 
 - **Parallelize.** Independent work runs at the same time, never one after another. Batch tool calls. Spawn subagents concurrently.
 - **Delegate by complexity.** Sonnet 5 for routine work (search, bulk edits, boilerplate, verification). Opus 5 for hard reasoning that can run on its own.
